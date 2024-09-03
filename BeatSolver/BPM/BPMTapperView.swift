@@ -23,12 +23,11 @@ struct BPMTapperView: View {
             registerTap()
         }) {
             Text("TAP")
-                .font(.headline)
-                .foregroundColor(.white)
-                .frame(maxWidth: .infinity, maxHeight: 80)
-                .background(bpmColor)
-                .cornerRadius(10)
-                .padding()
+                .font(Styles.buttonFont) // Use shared font
+                .foregroundColor(Styles.tapButtonTextColor) // Use custom text color
+                .frame(maxWidth: Styles.buttonMaxWidth, maxHeight: Styles.buttonHeight) // Use shared frame size
+                .background(Styles.tapButtonColor) // Use custom background color
+                .cornerRadius(Styles.buttonCornerRadius) // Use shared corner radius
         }
     }
     

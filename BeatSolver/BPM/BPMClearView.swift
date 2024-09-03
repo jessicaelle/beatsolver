@@ -17,14 +17,13 @@ struct BPMClearView: View {
         if showClearButton {
             Button(action: clearBPM) {
                 Text("CLEAR")
-                    .font(.headline)
-                    .foregroundColor(.white)
-                    .padding()
-                    .background(Color.red)
-                    .cornerRadius(10)
-                    .transition(.slide) // Optional: Add a slide transition for when the button appears
+                    .font(Styles.buttonFont) // Use shared font
+                    .foregroundColor(Styles.clearButtonTextColor) // Use custom text color
+                    .frame(maxWidth: Styles.buttonMaxWidth, maxHeight: Styles.buttonHeight) // Use shared frame size
+                    .background(Styles.clearButtonColor) // Use custom background color
+                    .cornerRadius(Styles.buttonCornerRadius) // Use shared corner radius
+                    .transition(.slide)
             }
-            .padding(.top, 10)
         }
     }
 

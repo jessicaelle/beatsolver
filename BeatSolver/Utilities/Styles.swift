@@ -18,5 +18,19 @@ struct Styles {
         return Font.system(size: bpmFontSize, weight: .bold)
     }
     
+    // Shared Button Styles
+    static let buttonFont: Font = .title2
+    static let buttonCornerRadius: CGFloat = 10
+    static let buttonMaxWidth: CGFloat = 240 // use .infinity for full width
+    static let buttonHeight: CGFloat = 70
+
+    // Tap Button Colors
+    static let tapButtonColor: Color = .blue
+    static let tapButtonTextColor: Color = .white
+
+    // Clear Button Colors
+    static let clearButtonColor: Color = .red
+    static let clearButtonTextColor: Color = .white
+    
 }
 
