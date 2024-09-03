@@ -12,10 +12,15 @@ struct BPMClearView: View {
     @Binding var bpmInput: String
     @Binding var bpmColor: Color
     @Binding var showClearButton: Bool
+    var onClear: () -> Void  // New closure to handle full reset
+
 
     var body: some View {
         if showClearButton {
-            Button(action: clearBPM) {
+            Button(action: {
+                print("Clear button pressed.")
+                onClear()  // Call the reset function in ContentView
+            }) {
                 Text("CLEAR")
                     .font(Styles.buttonFont) // Use shared font
                     .foregroundColor(Styles.clearButtonTextColor) // Use custom text color
@@ -25,11 +30,5 @@ struct BPMClearView: View {
                     .transition(.slide)
             }
         }
-    }
-
-    private func clearBPM() {
-        bpmInput = ""
-        bpmColor = .black // Reset to default color or any other initial color
-        showClearButton = false
     }
 }

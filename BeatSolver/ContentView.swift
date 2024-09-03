@@ -12,6 +12,8 @@ struct ContentView: View {
     @State private var bpmInput: String = ""
     @State private var bpmColor: Color = .black
     @State private var showClearButton: Bool = false  // Centralized control for CLEAR button
+    @State private var tapTimes: [Date] = []  // Move tapTimes to ContentView
+    @State private var bpmAverage: Double = 0  // Move bpmAverage to ContentView
 
     
     
@@ -31,10 +33,10 @@ struct ContentView: View {
                 
                 BPMInputView(bpmInput: $bpmInput, bpmColor: $bpmColor, onBPMChanged: { bpmInputUpdated() })
 
-                BPMTapperView(bpmInput: $bpmInput, bpmColor: $bpmColor, onBPMChanged: { bpmInputUpdated() })
+                BPMTapperView(bpmInput: $bpmInput, bpmColor: $bpmColor, onBPMChanged: { bpmInputUpdated() }, tapTimes: $tapTimes, bpmAverage: $bpmAverage)
 
                 if showClearButton {
-                    BPMClearView(bpmInput: $bpmInput, bpmColor: $bpmColor, showClearButton: $showClearButton)
+                    BPMClearView(bpmInput: $bpmInput, bpmColor: $bpmColor, showClearButton: $showClearButton, onClear: resetAll)
                 }
                 
                 // Placeholder for Beat Guide
@@ -56,6 +58,15 @@ struct ContentView: View {
     private func bpmInputUpdated() {
         showClearButton = !bpmInput.isEmpty
     }
+    
+    private func resetAll() {
+            bpmInput = ""
+            bpmColor = .black
+            showClearButton = false
+            tapTimes = []  // Clear tapTimes
+            bpmAverage = 0  // Reset BPM average
+        print("After reset - bpmInput: \(bpmInput), bpmColor: \(bpmColor), showClearButton: \(showClearButton), tapTimes: \(tapTimes.count), bpmAverage: \(bpmAverage)")
+        }
 }
 
 struct ContentView_Previews: PreviewProvider {

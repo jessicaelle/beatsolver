@@ -11,12 +11,8 @@ struct BPMTapperView: View {
     @Binding var bpmInput: String
     @Binding var bpmColor: Color
     var onBPMChanged: () -> Void  // Closure to notify ContentView of BPM changes
-
-    
-    // Adds tapping logic from Math
-    @State private var tapTimes: [Date] = []  // Use Date objects instead of TimeInterval
-    @State private var bpmAverage: Double = 0
-
+    @Binding var tapTimes: [Date]
+    @Binding var bpmAverage: Double
     
     var body: some View {
         Button(action: {
@@ -34,6 +30,9 @@ struct BPMTapperView: View {
     private func registerTap() {
            let tapTime = Date()
            tapTimes.append(tapTime)
+        
+        print("Current tapTimes count: \(tapTimes.count)")
+
 
         if tapTimes.count < 4 {
             // Trigger flash effect via bpmColor if fewer than 4 taps
@@ -57,6 +56,6 @@ struct BPMTapperView: View {
 
 struct BPMTapperView_Previews: PreviewProvider {
     static var previews: some View {
-        BPMTapperView(bpmInput: .constant("120"), bpmColor: .constant(.blue), onBPMChanged: {})
+        BPMTapperView(bpmInput: .constant("120"), bpmColor: .constant(.blue), onBPMChanged: {},tapTimes: .constant([]), bpmAverage: .constant(0.0))
     }
 }
