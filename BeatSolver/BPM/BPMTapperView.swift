@@ -11,13 +11,18 @@ struct BPMTapperView: View {
     @Binding var bpmInput: String
     @Binding var bpmColor: Color
     
+    // Adds tapping logic from Math
+    @State private var tapTimes: [Date] = []  // Use Date objects instead of TimeInterval
+    @State private var bpmAverage: Double = 0
+    @State private var isTapping: Bool = false
+
+    
     var body: some View {
         Button(action: {
-            // Action to be defined later
-            print("TAP button pressed")
+            registerTap()
         }) {
             Text("TAP")
-                .font(.title)
+                .font(.headline)
                 .foregroundColor(.white)
                 .frame(maxWidth: .infinity, maxHeight: 80)
                 .background(bpmColor)
@@ -25,7 +30,19 @@ struct BPMTapperView: View {
                 .padding()
         }
     }
-}
+    
+    private func registerTap() {
+           let tapTime = Date()
+           tapTimes.append(tapTime)  // Ensure that the tap time is added to the array
+
+           if let calculatedBPM = Math.calculateBPM(tapTimes: &tapTimes, currentBPMAverage: &bpmAverage) {
+               bpmInput = String(format: "%.2f", calculatedBPM)
+               print("Calculated BPM: \(calculatedBPM)")
+           } else {
+               print("BPM calculation failed")
+           }
+       }
+   }
 
 struct BPMTapperView_Previews: PreviewProvider {
     static var previews: some View {
