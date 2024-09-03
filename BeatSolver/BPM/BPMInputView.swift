@@ -16,7 +16,7 @@ struct BPMInputView: View {
     
     var body: some View {
         TextField("", text: $bpmInput)
-            .placeholder(when: bpmInput.isEmpty) { // Custom placeholder logic
+            .placeholder(when: bpmInput.isEmpty, alignment: .center) { // Set alignment to center
                 Text("BPM")
                     .font(Styles.bpmFont)
                     .foregroundColor(bpmColor) // Color controlled externally
@@ -38,8 +38,8 @@ struct BPMInputView: View {
 }
 
 extension View {
-    // New custom modifier for displaying a placeholder
-    func placeholder<Content: View>(when shouldShow: Bool, alignment: Alignment = .leading, @ViewBuilder placeholder: () -> Content) -> some View {
+    // Custom modifier for displaying a placeholder
+    func placeholder<Content: View>(when shouldShow: Bool, alignment: Alignment = .center, @ViewBuilder placeholder: () -> Content) -> some View {
         ZStack(alignment: alignment) {
             if shouldShow { placeholder() } // Display placeholder when input is empty
             self
