@@ -14,7 +14,6 @@ struct BPMTapperView: View {
     // Adds tapping logic from Math
     @State private var tapTimes: [Date] = []  // Use Date objects instead of TimeInterval
     @State private var bpmAverage: Double = 0
-    @State private var isTapping: Bool = false
 
     
     var body: some View {
@@ -33,16 +32,27 @@ struct BPMTapperView: View {
     
     private func registerTap() {
            let tapTime = Date()
-           tapTimes.append(tapTime)  // Ensure that the tap time is added to the array
+           tapTimes.append(tapTime)
 
-           if let calculatedBPM = Math.calculateBPM(tapTimes: &tapTimes, currentBPMAverage: &bpmAverage) {
-               bpmInput = String(format: "%.2f", calculatedBPM)
-               print("Calculated BPM: \(calculatedBPM)")
-           } else {
-               print("BPM calculation failed")
-           }
-       }
-   }
+        if tapTimes.count < 4 {
+            // Trigger flash effect via bpmColor if fewer than 4 taps
+            flashBPMPlaceholder()
+            print("Not enough taps yet: \(tapTimes.count)")
+        } else if let calculatedBPM = Math.calculateBPM(tapTimes: &tapTimes, currentBPMAverage: &bpmAverage) {
+            bpmInput = String(format: "%.2f", calculatedBPM)
+            print("Calculated BPM: \(calculatedBPM)")
+        } else {
+            print("BPM calculation failed")
+        }
+    }
+    
+    private func flashBPMPlaceholder() {
+        bpmColor = .red
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+            bpmColor = .black // Reset to original color, adjust this as necessary
+        }
+    }
+}
 
 struct BPMTapperView_Previews: PreviewProvider {
     static var previews: some View {

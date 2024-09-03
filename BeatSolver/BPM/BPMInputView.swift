@@ -15,7 +15,12 @@ struct BPMInputView: View {
     @FocusState private var isFocused: Bool
     
     var body: some View {
-        TextField("BPM", text: $bpmInput)
+        TextField("", text: $bpmInput)
+            .placeholder(when: bpmInput.isEmpty) { // Custom placeholder logic
+                Text("BPM")
+                    .font(Styles.bpmFont)
+                    .foregroundColor(bpmColor) // Color controlled externally
+            }
             .font(Styles.bpmFont)
             .multilineTextAlignment(.center)
             .foregroundColor(bpmColor)
@@ -29,6 +34,16 @@ struct BPMInputView: View {
             .onChange(of: bpmInput) { newValue in
                 bpmInput = BPMValidator.validateBPMInput(newValue)
             }
+    }
+}
+
+extension View {
+    // New custom modifier for displaying a placeholder
+    func placeholder<Content: View>(when shouldShow: Bool, alignment: Alignment = .leading, @ViewBuilder placeholder: () -> Content) -> some View {
+        ZStack(alignment: alignment) {
+            if shouldShow { placeholder() } // Display placeholder when input is empty
+            self
+        }
     }
 }
 
