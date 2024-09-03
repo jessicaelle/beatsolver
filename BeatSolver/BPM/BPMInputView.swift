@@ -26,6 +26,9 @@ struct BPMInputView: View {
                 isFocused = true  // Focus when tapped
             }
             .keyboardType(.decimalPad)
+            .onChange(of: bpmInput) { newValue in
+                bpmInput = BPMValidator.validateBPMInput(newValue)
+            }
     }
 }
 
