@@ -10,6 +10,7 @@ import SwiftUI
 struct BPMInputView: View {
     @Binding var bpmInput: String
     @Binding var bpmColor: Color
+    var onBPMChanged: () -> Void  // Closure to notify ContentView of BPM changes
     
     // Focus state to control when the TextField is focused
     @FocusState private var isFocused: Bool
@@ -33,6 +34,7 @@ struct BPMInputView: View {
             .keyboardType(.decimalPad)
             .onChange(of: bpmInput) { newValue in
                 bpmInput = BPMValidator.validateBPMInput(newValue)
+                onBPMChanged()  // Notify ContentView that BPM has changed
             }
     }
 }
@@ -50,6 +52,6 @@ extension View {
 struct BPMInputView_Previews: PreviewProvider {
     static var previews: some View {
         // Providing sample bindings for preview
-        BPMInputView(bpmInput: .constant("999.99"), bpmColor: .constant(.black))
+        BPMInputView(bpmInput: .constant("999.99"), bpmColor: .constant(.black), onBPMChanged: {})
     }
 }

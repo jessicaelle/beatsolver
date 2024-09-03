@@ -10,6 +10,8 @@ import SwiftUI
 struct BPMTapperView: View {
     @Binding var bpmInput: String
     @Binding var bpmColor: Color
+    var onBPMChanged: () -> Void  // Closure to notify ContentView of BPM changes
+
     
     // Adds tapping logic from Math
     @State private var tapTimes: [Date] = []  // Use Date objects instead of TimeInterval
@@ -56,6 +58,6 @@ struct BPMTapperView: View {
 
 struct BPMTapperView_Previews: PreviewProvider {
     static var previews: some View {
-        BPMTapperView(bpmInput: .constant("120"), bpmColor: .constant(.blue))
+        BPMTapperView(bpmInput: .constant("120"), bpmColor: .constant(.blue), onBPMChanged: {})
     }
 }

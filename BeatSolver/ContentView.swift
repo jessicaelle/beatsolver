@@ -11,6 +11,8 @@ struct ContentView: View {
     
     @State private var bpmInput: String = ""
     @State private var bpmColor: Color = .black
+    @State private var showClearButton: Bool = false  // Centralized control for CLEAR button
+
     
     
     var body: some View {
@@ -27,10 +29,13 @@ struct ContentView: View {
                 
                 Spacer()
                 
-                BPMInputView(bpmInput: $bpmInput, bpmColor: $bpmColor)
-                                
-                BPMTapperView(bpmInput: $bpmInput, bpmColor: $bpmColor)
+                BPMInputView(bpmInput: $bpmInput, bpmColor: $bpmColor, onBPMChanged: { bpmInputUpdated() })
 
+                BPMTapperView(bpmInput: $bpmInput, bpmColor: $bpmColor, onBPMChanged: { bpmInputUpdated() })
+
+                if showClearButton {
+                    BPMClearView(bpmInput: $bpmInput, bpmColor: $bpmColor, showClearButton: $showClearButton)
+                }
                 
                 // Placeholder for Beat Guide
                 Text("Beat Guide Placeholder")
@@ -39,14 +44,17 @@ struct ContentView: View {
                     .cornerRadius(8)
                 
                 Spacer()
-                
+
             }
             
             .padding()
             .ignoreKeyboard()
             .edgesIgnoringSafeArea(.all)
         }
-
+    }
+    
+    private func bpmInputUpdated() {
+        showClearButton = !bpmInput.isEmpty
     }
 }
 

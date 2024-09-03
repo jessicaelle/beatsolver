@@ -20,6 +20,7 @@
 		C83A8D002C869CD0003A4533 /* BPMValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C83A8CFF2C869CD0003A4533 /* BPMValidator.swift */; };
 		C83A8D022C86A194003A4533 /* BPMTapperView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C83A8D012C86A194003A4533 /* BPMTapperView.swift */; };
 		C83A8D042C86A2E7003A4533 /* Math.swift in Sources */ = {isa = PBXBuildFile; fileRef = C83A8D032C86A2E7003A4533 /* Math.swift */; };
+		C83A8D062C86B684003A4533 /* BPMClearView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C83A8D052C86B684003A4533 /* BPMClearView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,6 +57,7 @@
 		C83A8CFF2C869CD0003A4533 /* BPMValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BPMValidator.swift; sourceTree = "<group>"; };
 		C83A8D012C86A194003A4533 /* BPMTapperView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BPMTapperView.swift; sourceTree = "<group>"; };
 		C83A8D032C86A2E7003A4533 /* Math.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Math.swift; sourceTree = "<group>"; };
+		C83A8D052C86B684003A4533 /* BPMClearView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BPMClearView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -147,6 +149,7 @@
 				C83A8CEE2C867676003A4533 /* BPMInputView.swift */,
 				C83A8CFF2C869CD0003A4533 /* BPMValidator.swift */,
 				C83A8D012C86A194003A4533 /* BPMTapperView.swift */,
+				C83A8D052C86B684003A4533 /* BPMClearView.swift */,
 			);
 			path = BPM;
 			sourceTree = "<group>";
@@ -291,6 +294,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C83A8D062C86B684003A4533 /* BPMClearView.swift in Sources */,
 				C83A8CF82C867D70003A4533 /* IgnoreKeyboardModifier.swift in Sources */,
 				C83A8CEF2C867676003A4533 /* BPMInputView.swift in Sources */,
 				C83A8CC62C86520D003A4533 /* ContentView.swift in Sources */,
