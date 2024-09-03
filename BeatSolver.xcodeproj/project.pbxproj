@@ -18,6 +18,7 @@
 		C83A8CF62C867876003A4533 /* Styles.swift in Sources */ = {isa = PBXBuildFile; fileRef = C83A8CF52C867876003A4533 /* Styles.swift */; };
 		C83A8CF82C867D70003A4533 /* IgnoreKeyboardModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = C83A8CF72C867D70003A4533 /* IgnoreKeyboardModifier.swift */; };
 		C83A8D002C869CD0003A4533 /* BPMValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C83A8CFF2C869CD0003A4533 /* BPMValidator.swift */; };
+		C83A8D022C86A194003A4533 /* BPMTapperView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C83A8D012C86A194003A4533 /* BPMTapperView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,6 +53,7 @@
 		C83A8CF52C867876003A4533 /* Styles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Styles.swift; sourceTree = "<group>"; };
 		C83A8CF72C867D70003A4533 /* IgnoreKeyboardModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IgnoreKeyboardModifier.swift; sourceTree = "<group>"; };
 		C83A8CFF2C869CD0003A4533 /* BPMValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BPMValidator.swift; sourceTree = "<group>"; };
+		C83A8D012C86A194003A4533 /* BPMTapperView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BPMTapperView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -142,6 +144,7 @@
 			children = (
 				C83A8CEE2C867676003A4533 /* BPMInputView.swift */,
 				C83A8CFF2C869CD0003A4533 /* BPMValidator.swift */,
+				C83A8D012C86A194003A4533 /* BPMTapperView.swift */,
 			);
 			path = BPM;
 			sourceTree = "<group>";
@@ -290,6 +293,7 @@
 				C83A8CC62C86520D003A4533 /* ContentView.swift in Sources */,
 				C83A8CC42C86520D003A4533 /* BeatSolverApp.swift in Sources */,
 				C83A8D002C869CD0003A4533 /* BPMValidator.swift in Sources */,
+				C83A8D022C86A194003A4533 /* BPMTapperView.swift in Sources */,
 				C83A8CF62C867876003A4533 /* Styles.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

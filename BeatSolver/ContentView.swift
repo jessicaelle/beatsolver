@@ -28,14 +28,9 @@ struct ContentView: View {
                 Spacer()
                 
                 BPMInputView(bpmInput: $bpmInput, bpmColor: $bpmColor)
-                
-                Spacer()
-                
-                // Placeholder for BPM Tapper
-                Text("BPM Tapper Placeholder")
-                    .frame(height: 100)  // Adjust as necessary
-                    .background(Color.gray.opacity(0.2))
-                    .cornerRadius(8)
+                                
+                BPMTapperView(bpmInput: $bpmInput, bpmColor: $bpmColor)
+
                 
                 // Placeholder for Beat Guide
                 Text("Beat Guide Placeholder")
