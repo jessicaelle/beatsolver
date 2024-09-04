@@ -28,10 +28,14 @@ struct ContentView: View {
                     UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
                 }
             VStack(spacing: 20) {
-                
+                  
                 Spacer()
+                    .frame(height: 100)
                 
                 BPMInputView(bpmInput: $bpmInput, bpmColor: $bpmColor, onBPMChanged: { bpmInputUpdated() })
+                
+                Spacer()
+                    .frame(height: 20)
 
                 BPMTapperView(bpmInput: $bpmInput, bpmColor: $bpmColor, onBPMChanged: { bpmInputUpdated() }, tapTimes: $tapTimes, bpmAverage: $bpmAverage)
 

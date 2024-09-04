@@ -108,6 +108,7 @@
 		C83A8CC22C86520D003A4533 /* BeatSolver */ = {
 			isa = PBXGroup;
 			children = (
+				C83A8D072C88D0D9003A4533 /* BeatGrid */,
 				C83A8CF02C8677F9003A4533 /* Utilities */,
 				C83A8CED2C8675DA003A4533 /* BPM */,
 				C83A8CC32C86520D003A4533 /* BeatSolverApp.swift */,
@@ -162,6 +163,13 @@
 				C83A8D032C86A2E7003A4533 /* Math.swift */,
 			);
 			path = Utilities;
+			sourceTree = "<group>";
+		};
+		C83A8D072C88D0D9003A4533 /* BeatGrid */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = BeatGrid;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
